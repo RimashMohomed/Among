@@ -1,0 +1,14 @@
+package org.alljoyn.bus.sample.chat;
+
+import android.os.Bundle;
+
+public class FeedbackActivity  extends DashBoardActivity {
+	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_feedback);
+        setHeader(getString(R.string.FeedbackActivityTitle), true, false);
+        
+    }
+}
