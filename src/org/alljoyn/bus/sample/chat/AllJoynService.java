@@ -1157,10 +1157,10 @@ public class AllJoynService extends Service implements Observer {
 			try {
 				if (mJoinedToSelf) {
 					if (mHostChatInterface != null) {
-						mHostChatInterface.Chat(message);
+						mHostChatInterface.Chat(message.toString());
 					}
 				} else {
-					mChatInterface.Chat(message);
+					mChatInterface.Chat(message.toString());
 				}
 			} catch (BusException ex) {
 	    		mChatApplication.alljoynError(ChatApplication.Module.USE, "Bus exception while sending message: (" + ex + ")");
@@ -1179,7 +1179,7 @@ public class AllJoynService extends Service implements Observer {
          * method is only used as a signal emitter, it will never be called
          * directly.
 	     */
-    	public void Chat(Object str) throws BusException {                                                                                              
+    	public void Chat(String str) throws BusException {                                                                                              
         }     
     }
 

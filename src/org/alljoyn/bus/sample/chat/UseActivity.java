@@ -22,26 +22,25 @@ import org.alljoyn.bus.sample.chat.Observable;
 import org.alljoyn.bus.sample.chat.Observer;
 import org.alljoyn.bus.sample.chat.DialogBuilder;
 
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
-
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import android.util.Log;
 
+import java.io.File;
+import java.net.URI;
 import java.util.List;
 
 
@@ -63,9 +62,12 @@ public class UseActivity extends Activity implements Observer {
         messageBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_UP) {
-                	String message = view.getText().toString();
+                	Object message = view.getText().toString();
+                	URI uri = \res\drawable\icon.png;
+                	File file = new File(uri);
+                	byte[] buf = new byte[3];
                 	Log.i(TAG, "useMessage.onEditorAction(): got message " + message + ")");
-    	           mChatApplication.newLocalUserMessage(message);
+    	           mChatApplication.newLocalUserMessage(file);
     	            view.setText("");
     	            
     	            
