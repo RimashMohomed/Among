@@ -31,6 +31,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -58,16 +59,31 @@ public class UseActivity extends Activity implements Observer {
         ListView hlv = (ListView) findViewById(R.id.useHistoryList);
         hlv.setAdapter(mHistoryList);
         
+        Button mAttachButton = (Button)findViewById(R.id.attachFile);
+        mAttachButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				 Intent intent = new Intent();
+			      intent.setAction(Intent.ACTION_GET_CONTENT);
+			      intent.setType("file/*");
+			      startActivity(intent);
+			      Uri uri = intent.getData();
+			      mChatApplication.newLocalUserMessage(uri);
+			}
+		});
+        
         EditText messageBox = (EditText)findViewById(R.id.useMessage);
         messageBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_UP) {
                 	Object message = view.getText().toString();
-                	URI uri = \res\drawable\icon.png;
-                	File file = new File(uri);
+                	//URI uri = \res\drawable\icon.png;
+                	//File file = new File(uri);
                 	byte[] buf = new byte[3];
                 	Log.i(TAG, "useMessage.onEditorAction(): got message " + message + ")");
-    	           mChatApplication.newLocalUserMessage(file);
+    	         //  mChatApplication.newLocalUserMessage(buf);
     	            view.setText("");
     	            
     	            

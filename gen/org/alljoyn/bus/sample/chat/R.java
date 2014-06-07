@@ -35,6 +35,7 @@ public final class R {
         public static final int icon=0x7f02000b;
     }
     public static final class id {
+        public static final int attachFile=0x7f08001f;
         public static final int btnFeedback=0x7f08000c;
         public static final int btnHome=0x7f080009;
         public static final int errorDescription=0x7f080006;
@@ -63,11 +64,11 @@ public final class R {
         public static final int useChannelStatus=0x7f08001b;
         public static final int useHistoryList=0x7f080005;
         public static final int useJoin=0x7f08001c;
-        public static final int useJoinCancel=0x7f080020;
-        public static final int useJoinChannelList=0x7f08001f;
+        public static final int useJoinCancel=0x7f080021;
+        public static final int useJoinChannelList=0x7f080020;
         public static final int useLeave=0x7f08001d;
-        public static final int useLeaveCancel=0x7f080022;
-        public static final int useLeaveOk=0x7f080021;
+        public static final int useLeaveCancel=0x7f080023;
+        public static final int useLeaveOk=0x7f080022;
         public static final int useMessage=0x7f08001e;
         public static final int vsHeader=0x7f080000;
     }
